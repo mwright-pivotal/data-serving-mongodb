@@ -16,6 +16,7 @@ terraform {
 
 provider "nomad" {
   address = "http://192.168.0.89:4646"
+  secret_id = "${var.nomad_token}"
 }
 # Register a job
 resource "nomad_job" "openvino-notebooks" {
