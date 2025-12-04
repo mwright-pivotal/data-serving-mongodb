@@ -79,7 +79,7 @@ job "mongodb" {
 
             resources {
                 cpu    = 500      # 500 MHz
-                memory = 512      # MB
+                memory = 1024      # MB
             }
 
             service {
@@ -131,7 +131,7 @@ job "mongodb" {
 
             resources {
                 cpu    = 500      # 500 MHz
-                memory = 512      # MB
+                memory = 1024      # MB
             }
 
             service {
