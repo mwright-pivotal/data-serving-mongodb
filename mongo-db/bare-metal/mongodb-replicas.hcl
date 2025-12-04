@@ -48,7 +48,7 @@ job "mongodb" {
           driver = "exec"
           config {
             command = "/bin/sh"
-            args = ["-c", "mkdir -p \"$NOMAD_ALLOC_DIR/mongo/data\" \"$NOMAD_ALLOC_DIR/mongo/log\""]
+            args = ["-c", "mkdir -p \"$NOMAD_ALLOC_DIR/mongo/data1\" \"$NOMAD_ALLOC_DIR/mongo/data2\" \"$NOMAD_ALLOC_DIR/mongo/log\""]
           }
         }
         task "mongod-replica1" {
@@ -69,7 +69,7 @@ job "mongodb" {
                 command = "/bin/sh"
                 args = [
                     "-c",
-                    "set -euo pipefail; exec \"$NOMAD_TASK_DIR/mongodb-linux-x86_64-rhel93-8.2.2/bin/mongod\" --replSet rs0 --bind_ip_all --dbpath \"$NOMAD_ALLOC_DIR/mongo/data\" --port ${NOMAD_PORT_db1} --logpath \"$NOMAD_ALLOC_DIR/mongo/log/mongod-rs1.log\""
+                    "set -euo pipefail; exec \"$NOMAD_TASK_DIR/mongodb-linux-x86_64-rhel93-8.2.2/bin/mongod\" --replSet rs0 --bind_ip_all --dbpath \"$NOMAD_ALLOC_DIR/mongo/data1\" --port ${NOMAD_PORT_db1} --logpath \"$NOMAD_ALLOC_DIR/mongo/log/mongod-rs1.log\""
                 ]
             }
 
@@ -121,7 +121,7 @@ job "mongodb" {
                 command = "/bin/sh"
                 args = [
                     "-c",
-                    "set -euo pipefail; exec \"$NOMAD_TASK_DIR/mongodb-linux-x86_64-rhel93-8.2.2/bin/mongod\" --replSet rs0 --bind_ip_all --dbpath \"$NOMAD_ALLOC_DIR/mongo/data\" --port ${NOMAD_PORT_db2} --logpath \"$NOMAD_ALLOC_DIR/mongo/log/mongod-rs3.log\""
+                    "set -euo pipefail; exec \"$NOMAD_TASK_DIR/mongodb-linux-x86_64-rhel93-8.2.2/bin/mongod\" --replSet rs0 --bind_ip_all --dbpath \"$NOMAD_ALLOC_DIR/mongo/data2\" --port ${NOMAD_PORT_db2} --logpath \"$NOMAD_ALLOC_DIR/mongo/log/mongod-rs3.log\""
                 ]
             }
 
