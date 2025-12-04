@@ -15,10 +15,7 @@ terraform {
 }
 
 provider "nomad" {
-  address = "https://192.168.0.89:4646"
-  region  = "global"
-  skip_verify = "true"
-  secret_id = "super secret nomad secret id"
+  address = "http://192.168.0.89:4646"
 }
 # Register a job
 resource "nomad_job" "openvino-notebooks" {
