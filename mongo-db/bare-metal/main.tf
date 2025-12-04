@@ -15,10 +15,10 @@ terraform {
 }
 
 provider "nomad" {
-  address = "http://192.168.0.89:4646"
+  address = var.nomad_addr
   secret_id = var.nomad_token
 }
 # Register a job
-resource "nomad_job" "openvino-notebooks" {
+resource "nomad_job" "mongodb-bare-metal-lpar" {
   jobspec = file("${path.module}/mongodb-replicas.hcl")
 }
